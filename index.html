@@ -8,7 +8,7 @@
   <!-- Favicon Icono Corona -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>♕</text></svg>">
 
-<!-- Previsualización para WhatsApp y Redes Sociales (Open Graph) -->
+  <!-- Previsualización para WhatsApp y Redes Sociales (Open Graph) -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jhofrorgo.github.io/invitacion_xv_maria2/">
   <meta property="og:title" content="Mis XV Años - Maleja 👑">
@@ -768,6 +768,7 @@
       const videoBtn = document.getElementById("videoPlayBtn");
 
       if (video && videoBtn) {
+        // Iniciar reproducción manual al presionar el botón inicial
         videoBtn.addEventListener("click", () => {
           video.muted = false;
           const playPromise = video.play();
@@ -786,6 +787,12 @@
                 video.setAttribute("controls", "controls");
               });
           }
+        });
+
+        // Al finalizar la reproducción, restablecer el video al inicio y reaparecer el botón Play
+        video.addEventListener("ended", () => {
+          video.currentTime = 0;
+          videoBtn.classList.remove("hidden");
         });
       }
 
@@ -907,7 +914,7 @@
           const guests = document.getElementById("guests").value;
           const message = document.getElementById("message").value;
 
-          const phone = "573157816771"; // Reemplaza por tu número de WhatsApp
+          const phone = "573157816771";
           const text = `¡Hola! Confirmo mi asistencia para los XV de María Alejandra 👑%0A%0A` +
                        `*Nombre:* ${encodeURIComponent(name)}%0A` +
                        `*Asistencia:* ${encodeURIComponent(attendance)}%0A` +
