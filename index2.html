@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis XV Años - Maria Alejandra Ariza Chaparro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+        --rosa-principal: #f8c8dc;
+        --rosa-oscuro: #d47fa6;
+        --rosa-magico: #fff0f5;
+        --dorado: #d4af37;
+        --verde-bosque: #2d4a3e;
+        --texto-oscuro: #4a3b4e;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #fce4ec 0%, #fff0f5 50%, #e8f5e9 100%);
+        color: var(--texto-oscuro);
+        overflow-x: hidden;
+        text-align: center;
+    }
+
+    /* Destellos mágicos animados */
+    .sparkles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background-image:
+            radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 40px 70px, #ffd700, rgba(0,0,0,0)),
+            radial-gradient(3px 3px at 50px 160px, #fff, rgba(0,0,0,0)),
+            radial-gradient(2px 2px at 90px 40px, #ffb6c1, rgba(0,0,0,0));
+        background-repeat: repeat;
+        background-size: 200px 200px;
+        animation: sparkleAnim 4s infinite linear;
+        z-index: 1;
+        opacity: 0.6;
+    }
+
+    @keyframes sparkleAnim {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-200px); }
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    header {
+        padding: 50px 20px 30px;
+        border-bottom: 2px dashed var(--rosa-oscuro);
+    }
+
+    .subtitle-intro {
+        font-family: 'Great Vibes', cursive;
+        font-size: 2rem;
+        color: var(--rosa-oscuro);
+    }
+
+    h1 {
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 2.5rem;
+        color: var(--verde-bosque);
+        margin: 15px 0;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .tagline {
+        font-style: italic;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    /* Contador */
+    .countdown-container {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        margin: 30px 0;
+        border: 1px solid var(--rosa-principal);
+    }
+
+    .countdown-title {
+        font-family: 'Cinzel Decorative', cursive;
+        font-size: 1.2rem;
+        color: var(--rosa-oscuro);
+        margin-bottom: 15px;
+    }
+
+    .timer {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .box {
+        background: var(--rosa-magico);
+        border: 1px solid var(--dorado);
+        padding: 10px 15px;
+        border-radius: 12px;
+        min-width: 70px;
+    }
+
+    .box span {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--verde-bosque);
+    }
+
+    .box label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: #777;
+    }
+
+    /* Detalles de la Fiesta */
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 30px 20px;
+        margin: 25px 0;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        border: 1px solid var(--rosa-principal);
+    }
+
+    .card i.main-icon {
+        font-size: 2.5rem;
+        color: var(--rosa-oscuro);
+        margin-bottom: 15px;
+    }
+
+    .card h2 {
+        font-family: 'Cinzel Decorative', cursive;
+        color: var(--verde-bosque);
+        margin-bottom: 15px;
+    }
+
+    /* Dress code alert */
+    .dress-code-alert {
+        background: #fff0f3;
+        border-left: 4px solid var(--rosa-oscuro);
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 8px;
+        text-align: left;
+    }
+
+    .dress-code-alert strong {
+        color: var(--rosa-oscuro);
+    }
+
+    /* Protocolo */
+    .timeline {
+        text-align: left;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        padding-left: 20px;
+        border-left: 2px solid var(--rosa-principal);
+    }
+
+    .timeline-item {
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -26px;
+        top: 4px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--dorado);
+    }
+
+    .timeline-time {
+        font-weight: 600;
+        color: var(--rosa-oscuro);
+    }
+
+    /* Botones */
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-whatsapp {
+        background-color: #25D366;
+        color: white;
+    }
+
+    .btn-whatsapp:hover {
+        background-color: #1ebe57;
+        transform: translateY(-2px);
+    }
+
+    .btn-location {
+        background-color: var(--verde-bosque);
+        color: white;
+    }
+
+    .btn-location:hover {
+        background-color: #1d332a;
+        transform: translateY(-2px);
+    }
+
+    footer {
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<div class="sparkles"></div>
+
+<div class="container">
+  <header>
+    <p class="subtitle-intro">Toda historia tiene un comienzo...</p>
+    <h1>Maria Alejandra Ariza Chaparro</h1>
+    <p class="subtitle-intro">Mis XV Años</p>
+    <p class="tagline">"Hoy dejo atrás una etapa para dar la bienvenida a nuevos sueños."</p>
+  </header>
+
+  <div class="countdown-container">
+    <h3 class="countdown-title">Faltan muy pocos días</h3>
+    <div class="timer">
+      <div class="box"><span id="days">00</span><label>Días</label></div>
+      <div class="box"><span id="hours">00</span><label>Horas</label></div>
+      <div class="box"><span id="minutes">00</span><label>Min</label></div>
+      <div class="box"><span id="seconds">00</span><label>Seg</label></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-crown main-icon"></i>
+    <h2>¿Dónde y Cuándo?</h2>
+    <p><strong><i class="fa-regular fa-calendar"></i> Fecha:</strong> Sábado, 03 de Octubre de 2026</p>
+    <p><strong><i class="fa-regular fa-clock"></i> Hora:</strong> 6:00 PM</p>
+    <br>
+    <p><strong><i class="fa-solid fa-location-dot"></i> Lugar:</strong> Finca Campestre El Olival</p>
+
+    <div class="btn-container" style="max-width: 350px; margin: 20px auto 0;">
+      <a href="https://maps.google.com/?q=Finca+Campestre+El+Olival" target="_blank" class="btn btn-location">
+        <i class="fa-solid fa-map-location-dot"></i> Ver Ubicación en Mapa
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-wand-magic-sparkles main-icon"></i>
+    <h2>Protocolo de la Noche</h2>
+    <div class="timeline">
+      <div class="timeline-item"><span class="timeline-time">06:00 PM</span> - Recepción de Invitados</div>
+      <div class="timeline-item"><span class="timeline-time">06:30 PM</span> - Cóctel de Bienvenida</div>
+      <div class="timeline-item"><span class="timeline-time">07:00 PM</span> - Entrada Triunfal</div>
+      <div class="timeline-item"><span class="timeline-time">07:15 PM</span> - Sesión Fotográfica</div>
+      <div class="timeline-item"><span class="timeline-time">07:45 PM</span> - Actos Simbólicos</div>
+      <div class="timeline-item"><span class="timeline-time">08:15 PM</span> - El Vals</div>
+      <div class="timeline-item"><span class="timeline-time">08:30 PM</span> - Brindis y Palabras</div>
+      <div class="timeline-item"><span class="timeline-time">08:45 PM</span> - Espacio Social</div>
+      <div class="timeline-item"><span class="timeline-time">09:30 PM</span> - Baile Sorpresa</div>
+      <div class="timeline-item"><span class="timeline-time">10:00 PM</span> - Cena</div>
+      <div class="timeline-item"><span class="timeline-time">10:45 PM</span> - Apertura de Pista de Baile</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-shirt main-icon"></i>
+    <h2>Código de Vestimenta</h2>
+    <p>Elegante / Formal</p>
+    <div class="dress-code-alert">
+      <i class="fa-solid fa-heart" style="color: var(--rosa-oscuro);"></i>
+      <strong>Nota especial:</strong> Recuerda que el <strong>color Rosado</strong> está reservado exclusivamente para la quinceañera. ¡Prepárate para lucir elegante y celebrar juntos!
+    </div>
+  </div>
+
+  <div class="card">
+    <i class="fa-solid fa-envelope-open-text main-icon"></i>
+    <h2>Confirmación de Asistencia</h2>
+    <p>Será un honor contar con tu compañía en este día tan especial.</p>
+    <br>
+    <div class="btn-container" style="max-width: 400px; margin: 0 auto;">
+      <a href="https://wa.me/573157816771?text=¡Hola!%20Quiero%20confirmar%20mi%20asistencia%20a%20los%20XV%20Años%20de%20Maria%20Alejandra." target="_blank" class="btn btn-whatsapp">
+        <i class="fa-brands fa-whatsapp" style="font-size: 1.4rem;"></i> Confirmar por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>¡Te esperamos para compartir este momento inolvidable!</p>
+    <p style="margin-top: 5px; font-size: 0.8rem;">Mis XV Años • Maria Alejandra Ariza Chaparro</p>
+  </footer>
+</div>
+
+<script>
+  const targetDate = new Date("October 3, 2026 18:00:00").getTime();
+
+  function updateCountdown() {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+          document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+          document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+          document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+      } else {
+          document.querySelector(".countdown-container").innerHTML = "<h3 class='countdown-title'>¡Llegó el Gran Día!</h3>";
+      }
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+</body>
+</html>
