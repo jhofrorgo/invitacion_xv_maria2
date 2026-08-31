@@ -4,35 +4,555 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#e8a7bf" />
-  <!-- Meta etiquetas para vista previa en WhatsApp y Redes Sociales -->
+  
+  <!-- Previsualización para WhatsApp y Redes Sociales (Open Graph) -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://invitacion-mis-xv-maleja.netlify.app/">
+  <meta property="og:url" content="https://jhofrorgo.github.io/invitacion_xv_maria/">
   <meta property="og:title" content="Mis XV Años - Maleja 👑">
   <meta property="og:description" content="¡Estás invitado a celebrar mis 15 años! Descubre todos los detalles del evento aquí.">
-
-  <!-- Ruta de la imagen de vista previa -->
-	<meta property="og:image" content="https://jhofrorgo.github.io/invitacion_xv_maria/assets/hero.jpg">
+  <meta property="og:image" content="https://jhofrorgo.github.io/invitacion_xv_maria/assets/hero.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Compatibilidad adicional para Twitter (X) -->
+  <!-- Twitter (X) -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mis XV Años - Maleja 👑">
   <meta name="twitter:description" content="¡Estás invitado a celebrar mis 15 años! Descubre todos los detalles del evento aquí.">
   <meta name="twitter:image" content="https://jhofrorgo.github.io/invitacion_xv_maria/assets/hero.jpg">
 
   <title>Mis XV Años | María Alejandra Ariza Chaparro</title>
+  
+  <!-- Fuentes externas -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    :root {
+      --pink: #e9a6bd;
+      --pink2: #f8d9e4;
+      --rose: #bd6f8e;
+      --cream: #fff9f5;
+      --gold: #bd9160;
+      --ink: #573e48;
+      --forest: #415c4c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Montserrat, Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .sparkles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      background-image: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+        radial-gradient(circle at 80% 40%, rgba(189, 145, 96, 0.35) 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 75%, rgba(255, 255, 255, 0.7) 0 1px, transparent 2px);
+      background-size: 150px 150px, 230px 230px, 180px 180px;
+      opacity: 0.55;
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background: url('assets/hero.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(30, 45, 35, 0.32), rgba(56, 22, 38, 0.4) 55%, rgba(70, 31, 48, 0.6)),
+        radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.25) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 45px 22px;
+      max-width: 760px;
+    }
+
+    .crown {
+      font-size: 42px;
+      color: #f9d7a2;
+      text-shadow: 0 0 25px rgba(255, 216, 162, 0.8);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      letter-spacing: 0.22em;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin: 0 0 14px;
+    }
+
+    .hero .eyebrow {
+      color: #f9e4c7;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.7rem, 12vw, 7rem);
+      line-height: 0.72;
+      margin: 16px 0 28px;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h1 span {
+      font-family: 'Great Vibes', cursive;
+      font-size: 0.8em;
+      color: #ffe8f1;
+    }
+
+    .divider {
+      color: #f6d59c;
+      font-size: 1.2rem;
+      letter-spacing: 0.3em;
+    }
+
+    .hero-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 16px 26px;
+      font-family: Montserrat, sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #d88da8, #f2c5d5);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(135, 58, 85, 0.28);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+
+    .section {
+      padding: 85px 20px;
+    }
+
+    .section-inner {
+      max-width: 720px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .section h2,
+    .rsvp h2 {
+      font: 600 clamp(2.7rem, 8vw, 4.7rem)/0.92 'Cormorant Garamond', serif;
+      margin: 0 0 25px;
+      color: var(--ink);
+    }
+
+    h2 em {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+      color: var(--rose);
+      font-size: 1.08em;
+    }
+
+    .story p:not(.section-kicker) {
+      line-height: 1.8;
+      max-width: 620px;
+      margin: 18px auto;
+    }
+
+    /* REPRODUCTOR DE VIDEO */
+    .photo-break {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .photo-break video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.90);
+      color: #d86b91;
+      font-size: 32px;
+      line-height: 80px;
+      text-align: center;
+      cursor: pointer;
+      z-index: 20;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .video-play-btn:hover {
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    .video-play-btn.hidden {
+      display: none !important;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* EVENTO */
+    .event {
+      background: linear-gradient(160deg, #fff8f9, #f6e7dd);
+    }
+
+    .event-card,
+    .protocol-card {
+      max-width: 820px;
+      margin: auto;
+      padding: 48px 25px;
+      border: 1px solid rgba(189, 145, 96, 0.35);
+      background: rgba(255, 255, 255, 0.62);
+      box-shadow: 0 20px 60px rgba(116, 68, 81, 0.1);
+      text-align: center;
+    }
+
+    .ornament {
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 35px;
+    }
+
+    .event-grid .wide {
+      grid-column: 1/-1;
+    }
+
+    .event-grid strong {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+    }
+
+    .event-grid p {
+      margin: 8px auto 16px;
+      line-height: 1.5;
+    }
+
+    .icon {
+      display: block;
+      color: var(--rose);
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    /* CONTADOR REGRESIVO */
+    .countdown-section {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      background: url('assets/forest.jpg') center/cover fixed;
+      color: #fff;
+    }
+
+    .countdown-bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(40, 48, 42, 0.58);
+    }
+
+    .countdown-content {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .countdown-content h2 {
+      color: #fff;
+    }
+
+    .light {
+      color: #f6d59c;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(70px, 120px));
+      gap: 12px;
+    }
+
+    .countdown div {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+      padding: 18px 8px;
+    }
+
+    .countdown span {
+      display: block;
+      font: 600 clamp(2rem, 7vw, 3.8rem) 'Cormorant Garamond', serif;
+    }
+
+    .countdown small {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.62rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* GALERÍA */
+    .gallery {
+      max-width: 1050px;
+      margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .gallery img:nth-child(2) {
+      transform: translateY(35px);
+    }
+
+    /* VISOR LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.85);
+      place-items: center;
+    }
+
+    .lightbox.active {
+      display: grid;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: none;
+      border: 0;
+      color: #fff;
+      font-size: 3rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .lightbox-close { top: 20px; right: 30px; }
+    .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+    /* PROTOCOLO */
+    .protocol {
+      background: linear-gradient(180deg, #f9eef1, #fff9f5);
+    }
+
+    .protocol-card {
+      max-width: 760px;
+    }
+
+    .protocol ul {
+      list-style: none;
+      padding: 0;
+      margin: 30px auto 0;
+      text-align: left;
+      max-width: 520px;
+    }
+
+    .protocol li {
+      display: flex;
+      gap: 18px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(189, 145, 96, 0.25);
+      align-items: baseline;
+    }
+
+    .protocol time {
+      color: var(--rose);
+      font-weight: 600;
+      min-width: 88px;
+    }
+
+    .dress-code {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px dashed rgba(189, 145, 96, 0.4);
+    }
+
+    /* RSVP Y MODAL */
+    .rsvp {
+      padding: 100px 20px;
+      background: linear-gradient(rgba(66, 82, 67, 0.58), rgba(66, 82, 67, 0.68)), url('assets/princess.jpg') center/cover;
+    }
+
+    .rsvp-card {
+      max-width: 650px;
+      text-align: center;
+      margin: auto;
+      background: rgba(255, 250, 248, 0.9);
+      padding: 55px 28px;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.2);
+    }
+
+    .rsvp-note {
+      font-size: 0.78rem;
+      color: #8e7780;
+      margin-top: 15px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(49, 30, 40, 0.62);
+      padding: 20px;
+      place-items: center;
+    }
+
+    .modal.show {
+      display: grid;
+    }
+
+    .modal-box {
+      position: relative;
+      width: min(560px, 100%);
+      max-height: 90svh;
+      overflow: auto;
+      background: #fff9f8;
+      padding: 45px 28px;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+    }
+
+    .close {
+      position: absolute;
+      right: 15px;
+      top: 8px;
+      border: 0;
+      background: none;
+      font-size: 2rem;
+      color: var(--rose);
+      cursor: pointer;
+    }
+
+    .modal label {
+      display: block;
+      text-align: left;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin: 15px 0;
+    }
+
+    .modal input,
+    .modal select,
+    .modal textarea {
+      display: block;
+      width: 100%;
+      margin-top: 7px;
+      border: 1px solid #e5cbd5;
+      background: #fff;
+      padding: 13px;
+      border-radius: 4px;
+      font: inherit;
+      color: var(--ink);
+    }
+
+    .modal .btn {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 38px 20px;
+      background: #493944;
+      color: #fff;
+      font: 1.1rem 'Cormorant Garamond', serif;
+    }
+
+    footer strong {
+      display: block;
+      margin-top: 10px;
+      font-family: Montserrat;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      color: #f1c9d6;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      .section { padding: 70px 18px; }
+      .event-grid { grid-template-columns: 1fr; }
+      .countdown { grid-template-columns: repeat(2, 1fr); }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .gallery img { height: 310px; }
+      .gallery img:nth-child(3) { grid-column: 1/-1; height: 260px; }
+      .gallery img:nth-child(2) { transform: translateY(0); }
+      .hero h1 { font-size: 4rem; }
+    }
+  </style>
 </head>
 <body>
   <div class="sparkles" aria-hidden="true"></div>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="hero-overlay"></div>
-    <div class="hero-content reveal">
+    <div class="hero-content">
       <div class="crown">♕</div>
       <p class="eyebrow">MIS XV AÑOS</p>
       <h1>Maria Alejandra<br><span> Ariza Chaparro</span></h1>
@@ -43,168 +563,58 @@
   </header>
 
   <main>
+    <!-- HISTORIA -->
     <section id="invitacion" class="section story">
-      <div class="section-inner reveal">
+      <div class="section-inner">
         <p class="section-kicker">CON MUCHA ILUSIÓN</p>
         <h2>Te invito a vivir<br><em>un momento mágico</em></h2>
         <p>Hoy dejo atrás una etapa para dar la bienvenida a nuevos sueños, nuevas aventuras y hermosos recuerdos.</p>
       </div>
     </section>
 
+    <!-- VIDEO -->
+    <section class="photo-break">
+      <video id="invitacionVideo" playsinline muted preload="auto" controls>
+        <source src="assets/video.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
 
-<section class="short-card-section">
-  <div class="short-card">
-    <div class="short-preview">
-      <!-- Miniatura oficial del Short extraída de YouTube -->
-      <img src="https://img.youtube.com/vi/K2j6OelPWsI/maxresdefault.jpg" alt="Portada Video XV Maleja">
-      
-      <!-- Botón flotante de reproducción -->
-      <a 
-        href="https://youtube.com/shorts/K2j6OelPWsI" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="play-overlay"
-        aria-label="Ver video en YouTube">
-        <span class="play-icon">▶</span>
-      </a>
-    </div>
-
-    <div class="short-info">
-      <h3>Video Especial 👑</h3>
-      <p>Haz clic abajo para ver la invitación en video</p>
-      <a 
-        href="https://youtube.com/shorts/K2j6OelPWsI" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="btn-yt-action">
-        Ver en YouTube
-      </a>
-    </div>
-  </div>
-</section>
-
-<style>
-  .short-card-section {
-    padding: 30px 15px;
-  }
-
-  .short-card {
-    max-width: 360px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid rgba(189, 145, 96, 0.35);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 12px 35px rgba(116, 68, 81, 0.15);
-    text-align: center;
-  }
-
-  .short-preview {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    background: #000;
-    overflow: hidden;
-  }
-
-  .short-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .play-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.25);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: background 0.3s ease;
-  }
-
-  .play-overlay:hover {
-    background: rgba(0, 0, 0, 0.4);
-  }
-
-  .play-icon {
-    width: 70px;
-    height: 70px;
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--rose, #bd6f8e);
-    border-radius: 50%;
-    font-size: 28px;
-    line-height: 70px;
-    text-align: center;
-    padding-left: 4px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-  }
-
-  .play-overlay:hover .play-icon {
-    transform: scale(1.1);
-  }
-
-  .short-info {
-    padding: 20px 15px;
-  }
-
-  .short-info h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    margin: 0 0 5px;
-    color: var(--ink, #573e48);
-  }
-
-  .short-info p {
-    font-size: 0.9rem;
-    margin: 0 0 15px;
-    color: #666;
-  }
-
-  .btn-yt-action {
-    display: inline-block;
-    background: linear-gradient(135deg, #d88da8, #f2c5d5);
-    color: #fff;
-    font-weight: 600;
-    padding: 12px 26px;
-    border-radius: 999px;
-    text-decoration: none;
-    box-shadow: 0 8px 20px rgba(135, 58, 85, 0.25);
-    transition: transform 0.25s, filter 0.25s;
-  }
-
-  .btn-yt-action:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.05);
-  }
-</style>
-    ```
-
-
+      <button id="videoPlayBtn" class="video-play-btn" type="button" aria-label="Reproducir video con sonido">
+        ▶
+      </button>
     </section>
 
+    <!-- EVENTO -->
     <section class="section event">
-      <div class="event-card reveal">
+      <div class="event-card">
         <div class="ornament">❀</div>
         <p class="section-kicker">ACOMPÁÑAME A CELEBRAR</p>
         <h2>Una noche de<br><em>ensueño</em></h2>
         <div class="event-grid">
-          <div><span class="icon">📅</span><strong>Fecha</strong><p>Sábado, 03 de octubre de 2026</p></div>
-          <div><span class="icon">◷</span><strong>Hora</strong><p>6:00 p. m.</p></div>
-<div class="wide">
-  <span class="icon">⌖</span>
-  <strong>Lugar</strong>
-  <p>Finca Campestre El Olival</p>
-  <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Finca+Campestre+El+Olival">Ver ubicación ↗</a>
-</div>        </div>
+          <div>
+            <span class="icon">📅</span>
+            <strong>Fecha</strong>
+            <p>Sábado, 03 de octubre de 2026</p>
+          </div>
+          <div>
+            <span class="icon">◷</span>
+            <strong>Hora</strong>
+            <p>6:00 p. m.</p>
+          </div>
+          <div class="wide">
+            <span class="icon">⌖</span>
+            <strong>Lugar</strong>
+            <p>Finca Campestre El Olival</p>
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Finca+Campestre+El+Olival">Ver ubicación ↗</a>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- CONTADOR REGRESIVO -->
     <section class="countdown-section">
       <div class="countdown-bg"></div>
-      <div class="countdown-content reveal">
+      <div class="countdown-content">
         <p class="section-kicker light">LA MAGIA ESTÁ POR COMENZAR</p>
         <h2>Faltan...</h2>
         <div id="countdown" class="countdown">
@@ -216,153 +626,48 @@
       </div>
     </section>
 
- <section class="section gallery-section">
+    <!-- GALERÍA -->
+    <section class="section gallery-section">
+      <div class="center">
+        <p class="section-kicker">ENTRE FLORES Y ESTRELLAS</p>
+        <h2>Un sueño hecho<br><em>realidad</em></h2>
+      </div>
 
-  <div class="reveal center">
-    <p class="section-kicker">ENTRE FLORES Y ESTRELLAS</p>
+      <!-- Fotos visibles -->
+      <div class="gallery">
+        <img src="assets/forest.jpg" alt="Bosque encantado" />
+        <img src="assets/portrait.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/family.jpg" alt="Momentos especiales en familia" />
+      </div>
 
-    <h2>
-      Un sueño hecho<br>
-      <em>realidad</em>
-    </h2>
-  </div>
+      <div class="center" style="margin-top: 35px;">
+        <button id="openGalleryBtn" type="button" class="btn btn-primary">
+          Ver galería completa 📸
+        </button>
+      </div>
 
-  <!-- FOTOS VISIBLES EN LA PÁGINA -->
-  <div class="gallery reveal">
-    <img src="assets/forest.jpg" alt="Bosque encantado" />
-    <img src="assets/portrait.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/family.jpg" alt="Momentos especiales en familia" />
-  </div>
+      <!-- Fotos ocultas para el visor -->
+      <div class="hidden-gallery" style="display: none;">
+        <img src="assets/oscar.jpg" alt="Momento especial" />
+        <img src="assets/foto2.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car1.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car2.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car3.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car4.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car5.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car6.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car7.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car8.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car9.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car10.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car11.jpg" alt="Retrato de la quinceañera" />
+        <img src="assets/car12.jpg" alt="Retrato de la quinceañera" />
+      </div>
+    </section>
 
-  <!-- BOTÓN PARA VER LA GALERÍA COMPLETA -->
-  <div class="center" style="margin-top: 35px;">
-    <button id="openGalleryBtn" type="button" class="btn btn-primary">
-      Ver galería completa 📸
-    </button>
-  </div>
-
-  <!-- FOTOS ADICIONALES PARA EL VISOR -->
-  <div class="hidden-gallery" style="display: none;">
-    <img src="assets/oscar.jpg" alt="Momento especial" />
-    <img src="assets/foto2.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car1.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car2.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car3.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car4.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car5.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car6.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car7.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car8.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car9.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car10.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car11.jpg" alt="Retrato de la quinceañera" />
-    <img src="assets/car12.jpg" alt="Retrato de la quinceañera" />
-  </div>
-
-</section>
-
-
-<!-- VISOR DE FOTOS -->
-<div id="lightbox" class="lightbox">
-  <button class="lightbox-close" aria-label="Cerrar">×</button>
-  <button class="lightbox-prev" aria-label="Anterior">‹</button>
-  <img id="lightbox-img" src="" alt="" />
-  <button class="lightbox-next" aria-label="Siguiente">›</button>
-</div>
-
-<script>
-  // Todas las fotos: visibles + ocultas
-  const galleryImages = document.querySelectorAll(
-    ".gallery img, .hidden-gallery img"
-  );
-
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-
-  const closeBtn = document.querySelector(".lightbox-close");
-  const prevBtn = document.querySelector(".lightbox-prev");
-  const nextBtn = document.querySelector(".lightbox-next");
-  const openGalleryBtn = document.getElementById("openGalleryBtn");
-
-  let currentIndex = 0;
-
-  // =========================
-  // ABRIR VISOR
-  // =========================
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImg.src = galleryImages[currentIndex].src;
-    lightboxImg.alt = galleryImages[currentIndex].alt;
-    lightbox.classList.add("active");
-    document.body.style.overflow = "hidden";
-  }
-
-  // =========================
-  // CERRAR VISOR
-  // =========================
-  function closeLightbox() {
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
-  }
-
-  // =========================
-  // NAVEGACIÓN
-  // =========================
-  function showNext() {
-    currentIndex++;
-    if (currentIndex >= galleryImages.length) {
-      currentIndex = 0;
-    }
-    lightboxImg.src = galleryImages[currentIndex].src;
-    lightboxImg.alt = galleryImages[currentIndex].alt;
-  }
-
-  function showPrevious() {
-    currentIndex--;
-    if (currentIndex < 0) {
-      currentIndex = galleryImages.length - 1;
-    }
-    lightboxImg.src = galleryImages[currentIndex].src;
-    lightboxImg.alt = galleryImages[currentIndex].alt;
-  }
-
-  // Abrir visor al hacer clic en las imágenes visibles
-  const visibleImages = document.querySelectorAll(".gallery img");
-  visibleImages.forEach((image, index) => {
-    image.addEventListener("click", () => {
-      openLightbox(index);
-    });
-  });
-
-  // Abrir visor al hacer clic en el botón "Ver galería completa"
-  if (openGalleryBtn) {
-    openGalleryBtn.addEventListener("click", () => {
-      openLightbox(0);
-    });
-  }
-
-  // Eventos de control del visor
-  closeBtn.addEventListener("click", closeLightbox);
-  nextBtn.addEventListener("click", showNext);
-  prevBtn.addEventListener("click", showPrevious);
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (!lightbox.classList.contains("active")) return;
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowRight") showNext();
-    if (e.key === "ArrowLeft") showPrevious();
-  });
-</script>
-
+    <!-- PROTOCOLO Y VESTUARIO -->
     <section class="section protocol">
-      <div class="protocol-card reveal">
-
+      <div class="protocol-card">
         <p class="section-kicker">UNA NOCHE PARA RECORDAR</p>
         <h2>Protocolo</h2>
 
@@ -381,7 +686,6 @@
         </ul>
 
         <div class="dress-code">
-          <span class="dress-icon">✦</span>
           <p class="section-kicker">CÓDIGO DE VESTUARIO</p>
           <h3>Elegante</h3>
           <p>
@@ -390,12 +694,12 @@
             <strong>El color rosado está reservado.</strong>
           </p>
         </div>
-
       </div>
     </section>
 
+    <!-- RSVP -->
     <section class="rsvp">
-      <div class="rsvp-card reveal">
+      <div class="rsvp-card">
         <div class="crown">♕</div>
         <p class="section-kicker">TU PRESENCIA ES MUY ESPECIAL</p>
         <h2>¿Nos acompañas?</h2>
@@ -411,25 +715,202 @@
     <strong>Mis XV Años · 03.10.2026</strong>
   </footer>
 
+  <!-- LIGHTBOX (VISOR DE FOTOS) -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Cerrar">×</button>
+    <button class="lightbox-prev" aria-label="Anterior">‹</button>
+    <img id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next" aria-label="Siguiente">›</button>
+  </div>
+
+  <!-- MODAL RSVP -->
   <div id="rsvpModal" class="modal" aria-hidden="true">
     <div class="modal-box">
       <button id="closeRsvp" class="close" aria-label="Cerrar">×</button>
       <p class="section-kicker">CONFIRMACIÓN DE ASISTENCIA</p>
       <h2>¡Qué alegría contar contigo!</h2>
       <form id="rsvpForm">
-        <label>Tu nombre<input required id="guestName" type="text" placeholder="Escribe tu nombre" /></label>
+        <label>Tu nombre
+          <input required id="guestName" type="text" placeholder="Escribe tu nombre" />
+        </label>
         <label>¿Asistirás?
           <select id="attendance" required>
             <option value="Sí, asistiré">Sí, asistiré ✨</option>
             <option value="No podré asistir">No podré asistir</option>
           </select>
         </label>
-        <label>Número de personas<input id="guests" type="number" min="1" max="10" value="1" /></label>
-        <label>Mensaje para María (opcional)<textarea id="message" rows="3" placeholder="Escribe un lindo mensaje..."></textarea></label>
+        <label>Número de personas
+          <input id="guests" type="number" min="1" max="10" value="1" />
+        </label>
+        <label>Mensaje para María (opcional)
+          <textarea id="message" rows="3" placeholder="Escribe un lindo mensaje..."></textarea>
+        </label>
         <button class="btn btn-primary" type="submit">Enviar confirmación por WhatsApp</button>
       </form>
     </div>
   </div>
-  <script src="script.js"></script>
+
+  <!-- JAVASCRIPT PRINCIPAL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      // ==========================================
+      // 1. REPRODUCTOR DE VIDEO
+      // ==========================================
+      const video = document.getElementById("invitacionVideo");
+      const videoBtn = document.getElementById("videoPlayBtn");
+
+      if (video && videoBtn) {
+        videoBtn.addEventListener("click", () => {
+          video.muted = false;
+          const playPromise = video.play();
+
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                videoBtn.classList.add("hidden");
+                video.setAttribute("controls", "controls");
+              })
+              .catch((error) => {
+                console.error("Error al reproducir el video:", error);
+                video.muted = true;
+                video.play();
+                videoBtn.classList.add("hidden");
+                video.setAttribute("controls", "controls");
+              });
+          }
+        });
+      }
+
+      // ==========================================
+      // 2. CONTADOR REGRESIVO
+      // ==========================================
+      const targetDate = new Date("October 3, 2026 18:00:00").getTime();
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          document.getElementById("days").innerText = String(days).padStart(2, "0");
+          document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+          document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+          document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+        }
+      }
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // ==========================================
+      // 3. GALERÍA Y LIGHTBOX
+      // ==========================================
+      const galleryImages = document.querySelectorAll(".gallery img, .hidden-gallery img");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.querySelector(".lightbox-close");
+      const prevBtn = document.querySelector(".lightbox-prev");
+      const nextBtn = document.querySelector(".lightbox-next");
+      const openGalleryBtn = document.getElementById("openGalleryBtn");
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        lightboxImg.src = galleryImages[currentIndex].src;
+        lightboxImg.alt = galleryImages[currentIndex].alt;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        if (lightbox) {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentIndex].src;
+        lightboxImg.alt = galleryImages[currentIndex].alt;
+      }
+
+      function showPrevious() {
+        currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+        lightboxImg.src = galleryImages[currentIndex].src;
+        lightboxImg.alt = galleryImages[currentIndex].alt;
+      }
+
+      document.querySelectorAll(".gallery img").forEach((image, index) => {
+        image.addEventListener("click", () => openLightbox(index));
+      });
+
+      if (openGalleryBtn) {
+        openGalleryBtn.addEventListener("click", () => openLightbox(0));
+      }
+
+      if (closeBtn) closeBtn.addEventListener("click", closeLightbox);
+      if (nextBtn) nextBtn.addEventListener("click", showNext);
+      if (prevBtn) prevBtn.addEventListener("click", showPrevious);
+
+      if (lightbox) {
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox || !lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") showNext();
+        if (e.key === "ArrowLeft") showPrevious();
+      });
+
+      // ==========================================
+      // 4. MODAL RSVP Y WHATSAPP
+      // ==========================================
+      const rsvpModal = document.getElementById("rsvpModal");
+      const openRsvp = document.getElementById("openRsvp");
+      const closeRsvp = document.getElementById("closeRsvp");
+      const rsvpForm = document.getElementById("rsvpForm");
+
+      if (openRsvp) {
+        openRsvp.addEventListener("click", () => {
+          rsvpModal.classList.add("show");
+          rsvpModal.setAttribute("aria-hidden", "false");
+        });
+      }
+
+      if (closeRsvp) {
+        closeRsvp.addEventListener("click", () => {
+          rsvpModal.classList.remove("show");
+          rsvpModal.setAttribute("aria-hidden", "true");
+        });
+      }
+
+      if (rsvpForm) {
+        rsvpForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("guestName").value;
+          const attendance = document.getElementById("attendance").value;
+          const guests = document.getElementById("guests").value;
+          const message = document.getElementById("message").value;
+
+          const phone = "573000000000"; // Reemplaza por tu número de WhatsApp
+          const text = `¡Hola! Confirmo mi asistencia para los XV de María Alejandra 👑%0A%0A` +
+                       `*Nombre:* ${encodeURIComponent(name)}%0A` +
+                       `*Asistencia:* ${encodeURIComponent(attendance)}%0A` +
+                       `*Personas:* ${guests}%0A` +
+                       (message ? `*Mensaje:* ${encodeURIComponent(message)}` : "");
+
+          window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+        });
+      }
+    });
+  </script>
 </body>
 </html>
