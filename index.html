@@ -54,93 +54,96 @@
 
     <section class="photo-break">
 
-      <video id="invitacionVideo" playsinline loop>
-        <source src="assets/Video.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de video.
-      </video>
+  <video id="invitacionVideo" playsinline loop preload="metadata">
+    <source src="assets/Video.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de video.
+  </video>
 
-      <button
-              id="videoPlayBtn"
-              class="video-play-btn"
-              type="button"
-              aria-label="Reproducir video">
-        ▶
-      </button>
+  <button
+    id="videoPlayBtn"
+    class="video-play-btn"
+    type="button"
+    aria-label="Reproducir video">
+    ▶
+  </button>
 
-    </section>
+</section>
 
-    <style>
-      .photo-break {
-          position: relative;
-          width: 100%;
-          overflow: hidden;
+<style>
+  .photo-break {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .photo-break video {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 80px;
+    height: 80px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.90);
+    color: #d86b91;
+
+    font-size: 32px;
+    line-height: 80px;
+    text-align: center;
+
+    cursor: pointer;
+    z-index: 20;
+
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .video-play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .video-play-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  const video = document.getElementById("invitacionVideo");
+  const boton = document.getElementById("videoPlayBtn");
+
+  async function togglePlay() {
+    try {
+      if (video.paused) {
+        video.muted = false;
+        video.volume = 1;
+        await video.play();
+        boton.classList.add("hidden");
+      } else {
+        video.pause();
+        boton.classList.remove("hidden");
       }
+    } catch (error) {
+      console.error("Error al intentar reproducir:", error);
+    }
+  }
 
-      .photo-break video {
-          display: block;
-          width: 100%;
-          height: auto;
-      }
-
-      .video-play-btn {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-
-          width: 80px;
-          height: 80px;
-
-          border: 0;
-          border-radius: 50%;
-
-          background: rgba(255, 255, 255, 0.90);
-          color: #d86b91;
-
-          font-size: 32px;
-          line-height: 80px;
-          text-align: center;
-
-          cursor: pointer;
-          z-index: 20;
-
-          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-
-          transition: transform 0.3s ease, opacity 0.3s ease;
-      }
-
-      .video-play-btn:hover {
-          transform: translate(-50%, -50%) scale(1.08);
-      }
-    </style>
-
-    <script>
-      const video = document.getElementById("invitacionVideo");
-      const boton = document.getElementById("videoPlayBtn");
-
-      boton.addEventListener("click", async function () {
-
-          try {
-
-              // Aseguramos que el video NO esté silenciado
-              video.muted = false;
-              video.volume = 1;
-
-              // Reproducimos el video después del clic
-              await video.play();
-
-              // Ocultamos el botón
-              boton.style.opacity = "0";
-              boton.style.pointerEvents = "none";
-
-          } catch (error) {
-
-              console.error("No se pudo reproducir el video:", error);
-
-          }
-
-      });
-    </script>
+  // Permite reproducir/pausar haciendo clic en el botón o sobre el video directamente
+  boton.addEventListener("click", togglePlay);
+  video.addEventListener("click", togglePlay);
+</script>
     ```
 
 
