@@ -52,98 +52,134 @@
     </section>
 
 
-    <section class="photo-break">
+<section class="short-card-section">
+  <div class="short-card">
+    <div class="short-preview">
+      <!-- Miniatura oficial del Short extraída de YouTube -->
+      <img src="https://img.youtube.com/vi/K2j6OelPWsI/maxresdefault.jpg" alt="Portada Video XV Maleja">
+      
+      <!-- Botón flotante de reproducción -->
+      <a 
+        href="https://youtube.com/shorts/K2j6OelPWsI" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="play-overlay"
+        aria-label="Ver video en YouTube">
+        <span class="play-icon">▶</span>
+      </a>
+    </div>
 
-  <video id="invitacionVideo" playsinline loop preload="metadata">
-    <source src="assets/Video.mp4" type="video/mp4">
-    Tu navegador no soporta la reproducción de video.
-  </video>
-
-  <button
-    id="videoPlayBtn"
-    class="video-play-btn"
-    type="button"
-    aria-label="Reproducir video">
-    ▶
-  </button>
-
+    <div class="short-info">
+      <h3>Video Especial 👑</h3>
+      <p>Haz clic abajo para ver la invitación en video</p>
+      <a 
+        href="https://youtube.com/shorts/K2j6OelPWsI" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn-yt-action">
+        Ver en YouTube
+      </a>
+    </div>
+  </div>
 </section>
 
 <style>
-  .photo-break {
+  .short-card-section {
+    padding: 30px 15px;
+  }
+
+  .short-card {
+    max-width: 360px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(189, 145, 96, 0.35);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(116, 68, 81, 0.15);
+    text-align: center;
+  }
+
+  .short-preview {
     position: relative;
     width: 100%;
+    aspect-ratio: 9 / 16;
+    background: #000;
     overflow: hidden;
   }
 
-  .photo-break video {
-    display: block;
+  .short-preview img {
     width: 100%;
-    height: auto;
-    cursor: pointer;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .video-play-btn {
+  .play-overlay {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
 
-    width: 80px;
-    height: 80px;
+  .play-overlay:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
 
-    border: 0;
+  .play-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--rose, #bd6f8e);
     border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.90);
-    color: #d86b91;
-
-    font-size: 32px;
-    line-height: 80px;
+    font-size: 28px;
+    line-height: 70px;
     text-align: center;
-
-    cursor: pointer;
-    z-index: 20;
-
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
-
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    padding-left: 4px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
   }
 
-  .video-play-btn:hover {
-    transform: translate(-50%, -50%) scale(1.08);
+  .play-overlay:hover .play-icon {
+    transform: scale(1.1);
   }
 
-  .video-play-btn.hidden {
-    opacity: 0;
-    pointer-events: none;
+  .short-info {
+    padding: 20px 15px;
+  }
+
+  .short-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    margin: 0 0 5px;
+    color: var(--ink, #573e48);
+  }
+
+  .short-info p {
+    font-size: 0.9rem;
+    margin: 0 0 15px;
+    color: #666;
+  }
+
+  .btn-yt-action {
+    display: inline-block;
+    background: linear-gradient(135deg, #d88da8, #f2c5d5);
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(135, 58, 85, 0.25);
+    transition: transform 0.25s, filter 0.25s;
+  }
+
+  .btn-yt-action:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
   }
 </style>
-
-<script>
-  const video = document.getElementById("invitacionVideo");
-  const boton = document.getElementById("videoPlayBtn");
-
-  async function togglePlay() {
-    try {
-      if (video.paused) {
-        video.muted = false;
-        video.volume = 1;
-        await video.play();
-        boton.classList.add("hidden");
-      } else {
-        video.pause();
-        boton.classList.remove("hidden");
-      }
-    } catch (error) {
-      console.error("Error al intentar reproducir:", error);
-    }
-  }
-
-  // Permite reproducir/pausar haciendo clic en el botón o sobre el video directamente
-  boton.addEventListener("click", togglePlay);
-  video.addEventListener("click", togglePlay);
-</script>
     ```
 
 
@@ -157,8 +193,12 @@
         <div class="event-grid">
           <div><span class="icon">📅</span><strong>Fecha</strong><p>Sábado, 03 de octubre de 2026</p></div>
           <div><span class="icon">◷</span><strong>Hora</strong><p>6:00 p. m.</p></div>
-          <div class="wide"><span class="icon">⌖</span><strong>Lugar</strong><p>Finca Campestre El Olival</p><a class="text-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Finca+Campestre+El+Olival">Ver ubicación ↗</a></div>
-        </div>
+<div class="wide">
+  <span class="icon">⌖</span>
+  <strong>Lugar</strong>
+  <p>Finca Campestre El Olival</p>
+  <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Finca+Campestre+El+Olival">Ver ubicación ↗</a>
+</div>        </div>
       </div>
     </section>
 
@@ -176,229 +216,149 @@
       </div>
     </section>
 
-    <section class="section gallery-section">
-
-      <div class="reveal center">
-        <p class="section-kicker">ENTRE FLORES Y ESTRELLAS</p>
-
-        <h2>
-          Un sueño hecho<br>
-          <em>realidad</em>
-        </h2>
-      </div>
-
-      <!-- FOTOS VISIBLES EN LA PÁGINA -->
-      <div class="gallery reveal">
-
-        <img src="assets/forest.jpg" alt="Bosque encantado" />
-
-        <img src="assets/portrait.jpg" alt="Retrato de la quinceañera" />
-
-        <img src="assets/family.jpg" alt="Momentos especiales en familia" />
-
-
-
-      </div>
-
-      <!-- FOTOS ADICIONALES PARA EL VISOR -->
-      <div class="hidden-gallery">
-
-        <img src="assets/oscar.jpg" alt="Momento especial" />
-        <img src="assets/foto2.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car1.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car2.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car3.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car4.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car5.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car6.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car7.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car8.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car9.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car10.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car11.jpg" alt="Retrato de la quinceañera" />
-        <img src="assets/car12.jpg" alt="Retrato de la quinceañera" />
-
-      </div>
-
-    </section>
-
-
-    <!-- VISOR DE FOTOS -->
-    <div id="lightbox" class="lightbox">
-
-      <button class="lightbox-close" aria-label="Cerrar">×</button>
-
-      <button class="lightbox-prev" aria-label="Anterior">‹</button>
-
-      <img id="lightbox-img" src="" alt="" />
-
-      <button class="lightbox-next" aria-label="Siguiente">›</button>
-
-    </div>
-
-    <!-- VISOR DE FOTOS -->
-    <div id="lightbox" class="lightbox">
-      <button class="lightbox-close" aria-label="Cerrar">×</button>
-
-      <button class="lightbox-prev" aria-label="Anterior">‹</button>
-
-      <img id="lightbox-img" src="" alt="" />
-
-      <button class="lightbox-next" aria-label="Siguiente">›</button>
-    </div>
-
-    <script>
-
-      // Todas las fotos: visibles + ocultas
-      const galleryImages = document.querySelectorAll(
-        ".gallery img, .hidden-gallery img"
-      );
-
-      const lightbox = document.getElementById("lightbox");
-      const lightboxImg = document.getElementById("lightbox-img");
-
-      const closeBtn = document.querySelector(".lightbox-close");
-      const prevBtn = document.querySelector(".lightbox-prev");
-      const nextBtn = document.querySelector(".lightbox-next");
-
-      let currentIndex = 0;
-
-
-      // =========================
-      // ABRIR VISOR
-      // =========================
-
-      function openLightbox(index) {
-
-        currentIndex = index;
-
-        lightboxImg.src = galleryImages[currentIndex].src;
-        lightboxImg.alt = galleryImages[currentIndex].alt;
-
-        lightbox.classList.add("active");
-
-        // Evitar scroll de la página
-        document.body.style.overflow = "hidden";
-      }
-
-
-      // =========================
-      // CERRAR VISOR
-      // =========================
-
-      function closeLightbox() {
-
-        lightbox.classList.remove("active");
-
-        document.body.style.overflow = "";
-      }
-
-
-      // =========================
-      // SIGUIENTE
-      // =========================
-
-      function showNext() {
-
-        currentIndex++;
-
-        if (currentIndex >= galleryImages.length) {
-          currentIndex = 0;
-        }
-
-        lightboxImg.src = galleryImages[currentIndex].src;
-        lightboxImg.alt = galleryImages[currentIndex].alt;
-      }
-
-
-      // =========================
-      // ANTERIOR
-      // =========================
-
-      function showPrevious() {
-
-        currentIndex--;
-
-        if (currentIndex < 0) {
-          currentIndex = galleryImages.length - 1;
-        }
-
-        lightboxImg.src = galleryImages[currentIndex].src;
-        lightboxImg.alt = galleryImages[currentIndex].alt;
-      }
-
-
-      // =========================
-      // SOLO LAS FOTOS VISIBLES
-      // PUEDEN ABRIR EL VISOR
-      // =========================
-
-      const visibleImages = document.querySelectorAll(".gallery img");
-
-      visibleImages.forEach((image, index) => {
-
-        image.addEventListener("click", () => {
-
-          openLightbox(index);
-
-        });
-
-      });
-
-
-      // =========================
-      // CERRAR
-      // =========================
-
-      closeBtn.addEventListener("click", closeLightbox);
-
-
-      // =========================
-      // NAVEGACIÓN
-      // =========================
-
-      nextBtn.addEventListener("click", showNext);
-
-      prevBtn.addEventListener("click", showPrevious);
-
-
-      // =========================
-      // CERRAR HACIENDO CLICK
-      // FUERA DE LA FOTO
-      // =========================
-
-      lightbox.addEventListener("click", (e) => {
-
-        if (e.target === lightbox) {
-          closeLightbox();
-        }
-
-      });
-
-
-      // =========================
-      // TECLADO
-      // =========================
-
-      document.addEventListener("keydown", (e) => {
-
-        if (!lightbox.classList.contains("active")) return;
-
-        if (e.key === "Escape") {
-          closeLightbox();
-        }
-
-        if (e.key === "ArrowRight") {
-          showNext();
-        }
-
-        if (e.key === "ArrowLeft") {
-          showPrevious();
-        }
-
-      });
-
-    </script>
+ <section class="section gallery-section">
+
+  <div class="reveal center">
+    <p class="section-kicker">ENTRE FLORES Y ESTRELLAS</p>
+
+    <h2>
+      Un sueño hecho<br>
+      <em>realidad</em>
+    </h2>
+  </div>
+
+  <!-- FOTOS VISIBLES EN LA PÁGINA -->
+  <div class="gallery reveal">
+    <img src="assets/forest.jpg" alt="Bosque encantado" />
+    <img src="assets/portrait.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/family.jpg" alt="Momentos especiales en familia" />
+  </div>
+
+  <!-- BOTÓN PARA VER LA GALERÍA COMPLETA -->
+  <div class="center" style="margin-top: 35px;">
+    <button id="openGalleryBtn" type="button" class="btn btn-primary">
+      Ver galería completa 📸
+    </button>
+  </div>
+
+  <!-- FOTOS ADICIONALES PARA EL VISOR -->
+  <div class="hidden-gallery" style="display: none;">
+    <img src="assets/oscar.jpg" alt="Momento especial" />
+    <img src="assets/foto2.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car1.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car2.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car3.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car4.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car5.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car6.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car7.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car8.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car9.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car10.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car11.jpg" alt="Retrato de la quinceañera" />
+    <img src="assets/car12.jpg" alt="Retrato de la quinceañera" />
+  </div>
+
+</section>
+
+
+<!-- VISOR DE FOTOS -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" aria-label="Cerrar">×</button>
+  <button class="lightbox-prev" aria-label="Anterior">‹</button>
+  <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox-next" aria-label="Siguiente">›</button>
+</div>
+
+<script>
+  // Todas las fotos: visibles + ocultas
+  const galleryImages = document.querySelectorAll(
+    ".gallery img, .hidden-gallery img"
+  );
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  const closeBtn = document.querySelector(".lightbox-close");
+  const prevBtn = document.querySelector(".lightbox-prev");
+  const nextBtn = document.querySelector(".lightbox-next");
+  const openGalleryBtn = document.getElementById("openGalleryBtn");
+
+  let currentIndex = 0;
+
+  // =========================
+  // ABRIR VISOR
+  // =========================
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+
+  // =========================
+  // CERRAR VISOR
+  // =========================
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // =========================
+  // NAVEGACIÓN
+  // =========================
+  function showNext() {
+    currentIndex++;
+    if (currentIndex >= galleryImages.length) {
+      currentIndex = 0;
+    }
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+  }
+
+  function showPrevious() {
+    currentIndex--;
+    if (currentIndex < 0) {
+      currentIndex = galleryImages.length - 1;
+    }
+    lightboxImg.src = galleryImages[currentIndex].src;
+    lightboxImg.alt = galleryImages[currentIndex].alt;
+  }
+
+  // Abrir visor al hacer clic en las imágenes visibles
+  const visibleImages = document.querySelectorAll(".gallery img");
+  visibleImages.forEach((image, index) => {
+    image.addEventListener("click", () => {
+      openLightbox(index);
+    });
+  });
+
+  // Abrir visor al hacer clic en el botón "Ver galería completa"
+  if (openGalleryBtn) {
+    openGalleryBtn.addEventListener("click", () => {
+      openLightbox(0);
+    });
+  }
+
+  // Eventos de control del visor
+  closeBtn.addEventListener("click", closeLightbox);
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrevious);
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showNext();
+    if (e.key === "ArrowLeft") showPrevious();
+  });
+</script>
 
     <section class="section protocol">
       <div class="protocol-card reveal">
